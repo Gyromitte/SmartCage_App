@@ -6,22 +6,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class SplashScreen extends AppCompatActivity {
+public class Splash extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen);
+        setContentView(R.layout.activity_splash);
 
-        // Intent para ir al main activity
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+                Intent intent = new Intent(Splash.this, Login.class);
                 startActivity(intent);
-                // Cerrar splash screen
                 finish();
             }
-        }, 4000); //Delay de 4 segunods
+        }, 5000);
     }
 }

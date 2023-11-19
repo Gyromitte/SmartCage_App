@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewAccount"
+    android:background="@color/md_theme_light_onBackground">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REGíSTRATE"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:textColor="@color/md_theme_light_secondaryContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/layout"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/layout"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintBottom_toTopOf="@id/registrar">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nombre"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@color/md_theme_light_secondaryContainer"
+            app:layout_constraintStart_toStartOf="@id/nameEdit"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/nameEdit"
+            app:layout_constraintVertical_chainStyle="packed"/>
+
+        <EditText
+            android:id="@+id/nameEdit"
+            android:layout_width="200dp"
+            android:layout_height="48dp"
+            android:textSize="15sp"
+            android:textColor="@color/md_theme_light_secondaryContainer"
+            android:hint="Ingresa tu nombre"
+            android:textColorHint="@color/md_theme_light_secondaryContainer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            app:layout_constraintBottom_toTopOf="@id/lastName"
+            android:layout_marginBottom="17dp"/>
+
+        <TextView
+            android:id="@+id/lastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/apellido"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@color/md_theme_light_secondaryContainer"
+            app:layout_constraintStart_toStartOf="@id/nameEdit"
+            app:layout_constraintTop_toBottomOf="@id/nameEdit"
+            app:layout_constraintBottom_toTopOf="@id/lastNameEdit"/>
+
+        <EditText
+            android:id="@+id/lastNameEdit"
+            android:layout_width="200dp"
+            android:layout_height="48dp"
+            android:textSize="15sp"
+            android:textColor="@color/md_theme_light_secondaryContainer"
+            android:hint="Ingresa tu apellido(s)"
+            android:textColorHint="@color/md_theme_light_secondaryContainer"
+            app:layout_constraintStart_toStartOf="@id/nameEdit"
+            app:layout_constraintTop_toBottomOf="@id/lastName"
+            app:layout_constraintBottom_toTopOf="@id/user"
+            android:layout_marginBottom="17dp"/>
+
+        <TextView
+            android:id="@+id/user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/usuario"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@color/md_theme_light_secondaryContainer"
+            app:layout_constraintStart_toStartOf="@id/nameEdit"
+            app:layout_constraintTop_toBottomOf="@id/lastNameEdit"
+            app:layout_constraintBottom_toTopOf="@id/userEdit"/>
+
+        <EditText
+            android:id="@+id/userEdit"
+            android:layout_width="200dp"
+            android:layout_height="48dp"
+            android:textSize="15sp"
+            android:textColor="@color/md_theme_light_secondaryContainer"
+            android:hint="Ingresa tu usuario"
+            android:textColorHint="@color/md_theme_light_secondaryContainer"
+            android:inputType=""
+            app:layout_constraintStart_toStartOf="@id/nameEdit"
+            app:layout_constraintTop_toBottomOf="@id/user"
+            app:layout_constraintBottom_toTopOf="@id/email"
+            android:layout_marginBottom="17dp"/>
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/correo"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@color/md_theme_light_secondaryContainer"
+            app:layout_constraintStart_toStartOf="@id/nameEdit"
+            app:layout_constraintTop_toBottomOf="@id/userEdit"
+            app:layout_constraintBottom_toTopOf="@id/emailText"/>
+
+        <EditText
+            android:id="@+id/emailText"
+            android:layout_width="200dp"
+            android:layout_height="48dp"
+            android:textSize="15sp"
+            android:textColor="@color/md_theme_light_secondaryContainer"
+            android:hint="Ingresa tu correo"
+            android:textColorHint="@color/md_theme_light_secondaryContainer"
+            android:inputType="textEmailAddress"
+            app:layout_constraintStart_toStartOf="@id/nameEdit"
+            app:layout_constraintTop_toBottomOf="@id/email"
+            app:layout_constraintBottom_toTopOf="@id/password"
+            android:layout_marginBottom="17dp"/>
+
+        <TextView
+            android:id="@+id/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contraseña"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@color/md_theme_light_secondaryContainer"
+            app:layout_constraintStart_toStartOf="@id/nameEdit"
+            app:layout_constraintTop_toBottomOf="@id/emailText"
+            app:layout_constraintBottom_toTopOf="@id/passwordEdit"/>
+
+        <EditText
+            android:id="@+id/passwordEdit"
+            android:layout_width="200dp"
+            android:layout_height="48dp"
+            android:textSize="15sp"
+            android:textColor="@color/md_theme_light_secondaryContainer"
+            android:hint="Ingresa tu contraseña"
+            android:inputType="textPassword"
+            android:textColorHint="@color/md_theme_light_secondaryContainer"
+            app:layout_constraintStart_toStartOf="@id/nameEdit"
+            app:layout_constraintTop_toBottomOf="@id/password"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="17dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/registrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout"
+        android:text="Registrar"
+        android:backgroundTint="@color/md_theme_light_secondaryContainer"
+        android:textColor="@color/md_theme_light_onPrimaryContainer"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

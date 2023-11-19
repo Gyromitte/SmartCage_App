@@ -10,6 +10,7 @@ import android.widget.Button;
 
 public class Login extends AppCompatActivity {
     private Button account;
+    private Button newAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,11 +18,20 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         account = findViewById(R.id.account);
+        newAccount = findViewById(R.id.newAccount);
 
         account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Login.this, RegisteredAccount.class);
+                startActivity(i);
+            }
+        });
+
+        newAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Login.this, NewAccount.class);
                 startActivity(i);
             }
         });

@@ -21,6 +21,11 @@ import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static final int NAV_HOME = R.id.nav_home;
+    private static final int NAV_SETTINGS = R.id.nav_settings;
+    private static final int NAV_SENSORS = R.id.nav_sensors;
+    private static final int NAV_ABOUT = R.id.nav_about;
+    private static final int NAV_LOGOUT = R.id.nav_logout;
     private DrawerLayout drawerLayout;
 
     @Override
@@ -48,27 +53,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.nav_home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new HomeFragment()).commit();
-                break;
-            case R.id.nav_settings:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new SettingsFragment()).commit();
-                break;
-            case R.id.nav_sensors:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new SensorsFragment()).commit();
-                break;
-            case R.id.nav_about:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new AboutFragment()).commit();
-                break;
-            case R.id.nav_logout:
-                Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
-                break;
+        int itemId = item.getItemId();
+
+        if (itemId == NAV_HOME) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new HomeFragment()).commit();
+        } else if (itemId == NAV_SETTINGS) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new SettingsFragment()).commit();
+        } else if (itemId == NAV_SENSORS) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new SensorsFragment()).commit();
+        } else if (itemId == NAV_ABOUT) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new AboutFragment()).commit();
+        } else if (itemId == NAV_LOGOUT) {
+            Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
     @Override
     public void onBackPressed(){

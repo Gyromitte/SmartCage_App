@@ -4,21 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="176dp"
     android:gravity="bottom"
-    android:padding="16dp"
+    android:padding="13dp"
     android:background="@color/md_theme_light_primary"
     android:theme="@style/Base.Theme.SmartCage">
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/loguito"/>
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/loguito"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SmartCage"
+        android:textSize="20sp"
         android:textColor="@color/md_theme_light_onPrimary"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        />
 
     <TextView
         android:layout_width="wrap_content"

@@ -1,4 +1,4 @@
-package com.example.smartcage;
+package com.example.smartcage.views;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 
+import com.example.smartcage.R;
 import com.example.smartcage.fragments.AboutFragment;
 import com.example.smartcage.fragments.HomeFragment;
 import com.example.smartcage.fragments.SensorsFragment;

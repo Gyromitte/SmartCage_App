@@ -1,4 +1,4 @@
-package com.example.smartcage;
+package com.example.smartcage.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,21 +7,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class NewAccount extends AppCompatActivity {
+import com.example.smartcage.R;
 
-    private Button registrar;
+public class RegisteredAccount extends AppCompatActivity {
+
+    private Button login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_account);
+        setContentView(R.layout.activity_registered_account);
 
-        registrar=findViewById(R.id.registrar);
+        login=findViewById(R.id.login);
 
-        registrar.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(NewAccount.this, RegisteredAccount.class);
+                Intent i = new Intent(RegisteredAccount.this, MainActivity.class);
                 startActivity(i);
             }
         });

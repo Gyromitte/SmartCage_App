@@ -33,6 +33,8 @@ android {
 
 dependencies {
 
+    implementation("com.square.retrofit2:retrofit:2.9.0")
+    implementation("com.square.retrofit2:converter-gson:2.9.0")
     implementation("com.airbnb.android:lottie:6.1.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")

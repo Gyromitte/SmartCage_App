@@ -48,8 +48,8 @@ public class NewAccount extends AppCompatActivity {
                     Toast.makeText(NewAccount.this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
                 User user = new User(name, lastName, email, password);
+                userViewModel.getRegistrationResponse().removeObservers(NewAccount.this);
 
                 userViewModel.registerUser(user);
 
@@ -60,7 +60,7 @@ public class NewAccount extends AppCompatActivity {
                             startActivity(i);
                             finish();
                         } else {
-                            Toast.makeText(NewAccount.this, "Error en el registro: " + apiResponse.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(NewAccount.this, "Error en el registroo: " + apiResponse.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

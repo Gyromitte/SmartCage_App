@@ -16,6 +16,9 @@
         android:theme="@style/Theme.SmartCage"
         tools:targetApi="31">
         <activity
+            android:name=".views.sensors.FoodScreen"
+            android:exported="false" />
+        <activity
             android:name=".views.sensors.WaterScreen"
             android:exported="false" />
         <activity

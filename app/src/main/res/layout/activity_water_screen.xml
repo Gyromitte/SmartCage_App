@@ -63,23 +63,37 @@
         android:textColor="@color/md_theme_light_onPrimaryContainer"/>
 
     <Button
-        android:id="@+id/fill"
+        android:id="@+id/add_water"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/last_value"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="Agregar mas agua +"
+        android:text="Agregar agua"
         android:layout_marginTop="20dp"
-        android:textSize="20dp"/>
+        android:textSize="25dp"/>
 
-    <Button
+    <TextView
+        android:id="@+id/min_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/fill"
+        app:layout_constraintTop_toBottomOf="@+id/add_water"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="Llenar"
+        android:layout_marginTop="20dp"
+        android:text="Porcentaje minimo: value"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/md_theme_light_onPrimaryContainer"/>
+
+    <Button
+        android:id="@+id/change_min"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/min_value"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Cambiar"
         android:layout_marginTop="20dp"
         android:textSize="20dp"/>
 

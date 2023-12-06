@@ -59,6 +59,7 @@ public class NewAccount extends AppCompatActivity {
                             Intent i = new Intent(NewAccount.this, RegisteredAccount.class);
                             startActivity(i);
                             finish();
+
                         } else {
                             Toast.makeText(NewAccount.this, "Error en el registroo: " + apiResponse.getMessage(), Toast.LENGTH_SHORT).show();
                         }

@@ -1,5 +1,6 @@
 package com.example.smartcage.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import com.example.smartcage.Adapters.SensorAdapter;
 import com.example.smartcage.Models.Sensor;
 import com.example.smartcage.R;
+import com.example.smartcage.views.sensors.WaterScreen;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,10 +35,18 @@ public class SensorsFragment extends Fragment {
         sensorList.add(new Sensor("Temperatura", R.drawable.proximity));
 
         SensorAdapter sa = new SensorAdapter(sensorList);
-        RecyclerView rv = rootView.findViewById(R.id.rcSensors); // Use inflated view
+        RecyclerView rv = rootView.findViewById(R.id.rcSensors);
+
+        // Configurar el listener para el clic en el adaptador
+        sa.setOnSensorClickListener(position -> {
+            // Acción a realizar al hacer clic en un elemento
+            // Por ejemplo, abrir una nueva actividad con un Intent
+            Intent intent = new Intent(getActivity(), WaterScreen.class); // Reemplaza NuevaActividad por tu actividad
+            startActivity(intent);
+        });
 
         rv.setAdapter(sa);
-        rv.setLayoutManager(new LinearLayoutManager(getActivity())); // More shenanigans because this BS is a fragment
+        rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         rv.setHasFixedSize(true);
 
         return rootView;

@@ -16,6 +16,7 @@ import java.util.List;
 
 public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.SensorHolder> {
     private List<Sensor> sensorList;
+    private OnSensorClickListener onSensorClickListener;
 
     public SensorAdapter(List<Sensor> sensorList) {
         this.sensorList = sensorList;
@@ -30,9 +31,15 @@ public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.SensorHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SensorAdapter.SensorHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SensorHolder holder, int position) {
         Sensor s = sensorList.get(position);
         holder.setData(s);
+
+        holder.itemView.setOnClickListener(view -> {
+            if (onSensorClickListener != null) {
+                onSensorClickListener.onSensorClick(position);
+            }
+        });
     }
 
     @Override
@@ -60,5 +67,13 @@ public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.SensorHold
         }
     }
 
+    // Interfaz para manejar los clics
+    public interface OnSensorClickListener {
+        void onSensorClick(int position);
+    }
 
+    // Método para configurar el listener
+    public void setOnSensorClickListener(OnSensorClickListener listener) {
+        this.onSensorClickListener = listener;
+    }
 }

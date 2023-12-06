@@ -1,17 +1,17 @@
 package com.example.smartcage.views.sensors;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.smartcage.R;
 
 public class FoodScreen extends AppCompatActivity {
 
-    private static final int MAX_PROGRESO = 100;
+    private static final int MAX_PROGRESO = 80;
     private ImageView imageFoodBowl;
     private boolean ajusteRealizado = false;
 
@@ -27,7 +27,7 @@ public class FoodScreen extends AppCompatActivity {
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (!ajusteRealizado) {
-            int progreso = 50;
+            int progreso = 10;
 
             if (progreso >= 0 && progreso <= MAX_PROGRESO) {
                 int alturaVisible = (imageFoodBowl.getHeight() * progreso) / MAX_PROGRESO;

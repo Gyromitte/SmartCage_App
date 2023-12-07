@@ -38,7 +38,11 @@ public class SensorsFragment extends Fragment {
 
         // Configurar el listener para el clic en el adaptador
         sa.setOnSensorClickListener(position -> {
+
             switch (position){
+
+            switch(position){
+
                 case 0:
                     Intent intent = new Intent(getActivity(), WaterScreen.class);
                     startActivity(intent);

@@ -9,46 +9,46 @@ import com.example.smartcage.Models.ApiResponse;
 import com.example.smartcage.Models.User;
 import com.example.smartcage.request.ApiClient;
 
+import java.io.IOException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class UserRepository {
 
-    private ApiService apiService;
-    private MutableLiveData<ApiResponse> registrationResponse;
+    private final ApiService apiService;
 
     public UserRepository() {
         apiService = ApiClient.getClient().create(ApiService.class);
-        registrationResponse = new MutableLiveData<>();
     }
 
-    public MutableLiveData<ApiResponse> getRegistrationResponse() {
-        return registrationResponse;
-    }
+    public MutableLiveData<ApiResponse.RegistrationResponse> registerUser(User user) {
+        MutableLiveData<ApiResponse.RegistrationResponse> registrationResponseMutableLiveData = new MutableLiveData<>();
 
-    public void registerUser(User user) {
-        Call<ApiResponse> call = apiService.registerUser(user);
-        call.enqueue(new Callback<ApiResponse>() {
+        Call<ApiResponse.RegistrationResponse> call = apiService.registerUser(user);
+
+        call.enqueue(new Callback<ApiResponse.RegistrationResponse>() {
             @Override
-            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+            public void onResponse(Call<ApiResponse.RegistrationResponse> call, Response<ApiResponse.RegistrationResponse> response) {
                 if (response.isSuccessful()) {
-                    registrationResponse.setValue(response.body());
+                    registrationResponseMutableLiveData.setValue(response.body());
                 } else {
-                    // Manejar el error de la respuesta no exitosa
-                    registrationResponse.setValue(new ApiResponse(false, "Error en el servidor: " + response.code()));
-                    Log.e("Registration Error", response.message());
+                    Log.e("API Response", "Error: " + response.code());
+                    try {
+                        Log.e("API Response", "Error: " + response.errorBody().string());
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
             }
 
-
             @Override
-            public void onFailure(Call<ApiResponse> call, Throwable t) {
-                // Manejar el fallo en la llamada
-                registrationResponse.setValue(new ApiResponse(false, "Error de red: " + t.getMessage()));
-                Log.e("Registration Failure", t.getMessage());
+            public void onFailure(Call<ApiResponse.RegistrationResponse> call, Throwable t) {
+                Log.e("API Failure", "Error: " + t.getMessage());
             }
-
         });
+
+        return registrationResponseMutableLiveData;
     }
 }

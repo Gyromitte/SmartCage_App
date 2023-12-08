@@ -1,7 +1,7 @@
 package com.example.smartcage.views;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,7 +10,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.smartcage.Models.User;
 import com.example.smartcage.R;
 import com.example.smartcage.viewModel.UserViewModel;
 
@@ -48,21 +47,15 @@ public class NewAccount extends AppCompatActivity {
                     Toast.makeText(NewAccount.this, "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                User user = new User(name, lastName, email, password);
-                userViewModel.getRegistrationResponse().removeObservers(NewAccount.this);
+                userViewModel.registerUser(name, lastName, email, password).observe(NewAccount.this, registrationResponse -> {
 
-                userViewModel.registerUser(user);
-
-                userViewModel.getRegistrationResponse().observe(NewAccount.this, apiResponse -> {
-                    if (apiResponse != null) {
-                        if (apiResponse.isSuccess()) {
-                            Intent i = new Intent(NewAccount.this, RegisteredAccount.class);
-                            startActivity(i);
-                            finish();
-
-                        } else {
-                            Toast.makeText(NewAccount.this, "Error en el registroo: " + apiResponse.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
+                    if (registrationResponse != null) {
+                        // Registro exitoso, maneja la respuesta según sea necesario
+                        String message = registrationResponse.getMessage();
+                        // Puedes mostrar un Toast, navegar a otra pantalla, etc.
+                        // Muestra el mensaje en un Toast
+                        Toast.makeText(NewAccount.this, message, Toast.LENGTH_SHORT).show();
+                        Log.d("Registro", "Respuesta del servidor: " + message);
                     }
                 });
             }

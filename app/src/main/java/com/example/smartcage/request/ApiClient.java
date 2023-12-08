@@ -1,5 +1,7 @@
 package com.example.smartcage.request;
 
+import com.google.gson.GsonBuilder;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -21,7 +23,7 @@ public class ApiClient {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().setLenient().create()))
                     .build();
         }
         return retrofit;

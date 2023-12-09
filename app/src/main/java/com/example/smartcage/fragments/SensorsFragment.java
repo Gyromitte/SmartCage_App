@@ -28,12 +28,11 @@ public class SensorsFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_sensors, container, false);
 
         List<Sensor> sensorList = new ArrayList<>();
-        sensorList.add(new Sensor("Agua", R.drawable.water_droplet));
-        sensorList.add(new Sensor("Alimento", R.drawable.cookie));
-        sensorList.add(new Sensor("Gas", R.drawable.gas));
-        sensorList.add(new Sensor("Proximidad", R.drawable.proximity));
-        // TODO: Replace icon for temperature
-        sensorList.add(new Sensor("Temperatura", R.drawable.proximity));
+        sensorList.add(new Sensor("Agua", R.drawable.water_bowl));
+        sensorList.add(new Sensor("Alimento", R.drawable.food_bowl));
+        sensorList.add(new Sensor("Gas", R.drawable.poop));
+        sensorList.add(new Sensor("Proximidad", R.drawable.proxi));
+        sensorList.add(new Sensor("Temperatura", R.drawable.termometer));
 
         SensorAdapter sa = new SensorAdapter(sensorList);
         RecyclerView rv = rootView.findViewById(R.id.rcSensors);

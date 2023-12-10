@@ -1,5 +1,6 @@
 package com.example.smartcage.views;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -50,10 +51,11 @@ public class NewAccount extends AppCompatActivity {
                 userViewModel.registerUser(name, lastName, email, password).observe(NewAccount.this, registrationResponse -> {
 
                     if (registrationResponse != null) {
-                        // Registro exitoso, maneja la respuesta según sea necesario
                         String message = registrationResponse.getMessage();
-                        // Puedes mostrar un Toast, navegar a otra pantalla, etc.
-                        // Muestra el mensaje en un Toast
+
+                        Intent i = new Intent(NewAccount.this, Login.class);
+                        startActivity(i);
+
                         Toast.makeText(NewAccount.this, message, Toast.LENGTH_SHORT).show();
                         Log.d("Registro", "Respuesta del servidor: " + message);
                     }

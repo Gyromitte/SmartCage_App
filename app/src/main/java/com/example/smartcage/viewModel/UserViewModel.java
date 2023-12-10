@@ -18,4 +18,8 @@ public class UserViewModel extends ViewModel {
         User user = new User(name, lastName, email, password);
         return repository.registerUser(user);
     }
+
+    public MutableLiveData<String> loginUser(String email, String password) {
+        return repository.loginUser(email, password);
+    }
 }

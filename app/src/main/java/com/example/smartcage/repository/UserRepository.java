@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.smartcage.ApiService;
 import com.example.smartcage.Models.ApiResponse;
+import com.example.smartcage.Models.JwtResponse;
 import com.example.smartcage.Models.User;
 import com.example.smartcage.request.ApiClient;
 
@@ -50,5 +51,32 @@ public class UserRepository {
         });
 
         return registrationResponseMutableLiveData;
+    }
+
+    public MutableLiveData<String> loginUser(String email, String password) {
+        MutableLiveData<String> tokenLiveData = new MutableLiveData<>();
+
+        Call<JwtResponse> call = apiService.loginUser(email, password);
+
+        call.enqueue(new Callback<JwtResponse>() {
+            @Override
+            public void onResponse(Call<JwtResponse> call, Response<JwtResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    String token = response.body().getToken();
+                    tokenLiveData.setValue(token);
+                } else {
+                    // Manejar el error en el inicio de sesión
+                    tokenLiveData.setValue(null);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JwtResponse> call, Throwable t) {
+                // Manejar la falla en la comunicación con el servidor
+                tokenLiveData.setValue(null);
+            }
+        });
+
+        return tokenLiveData;
     }
 }

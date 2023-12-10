@@ -48,9 +48,11 @@ public class SensorsFragment extends Fragment {
                 case 1:
                     Intent foodIntent = new Intent(getActivity(), FoodScreen.class);
                     startActivity(foodIntent);
+                    break;
                 case 4:
                     Intent tempIntent = new Intent(getActivity(), TempScreen.class);
                     startActivity(tempIntent);
+                    break;
             }
 
         });

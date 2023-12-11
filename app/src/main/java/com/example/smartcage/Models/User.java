@@ -1,9 +1,13 @@
 package com.example.smartcage.Models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class User {
     private String name;
     private String lastname;
+    @SerializedName("email")
     private String email;
+    @SerializedName("password")
     private String password;
 
     public String getName() {

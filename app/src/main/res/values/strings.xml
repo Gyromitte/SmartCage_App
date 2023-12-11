@@ -14,7 +14,8 @@
     <string name="home">Home</string>
 
     <string name="sensores">Sensores</string>
-    <string name="waterSesnor">Nivel de agua</string>
+    <string name="waterSensor">Nivel de agua</string>
+    <string name="foodlevel">Nivel de comida</string>
 
     <string name="configuraci_n">Configuración</string>
     <string name="about_us">About us</string>

@@ -16,7 +16,9 @@
         android:theme="@style/Theme.SmartCage"
         tools:targetApi="31">
         <activity
-            android:name=".views.fragments.CageFragment"
+            android:name=".views.fragments.CageFragment" />
+        <activity
+            android:name=".views.sensors.TempScreen"
             android:exported="false" />
         <activity
             android:name=".views.sensors.FoodScreen"

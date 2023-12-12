@@ -12,6 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.smartcage.Adapters.SensorAdapter;
 import com.example.smartcage.Models.Sensor;
 import com.example.smartcage.R;
+import com.example.smartcage.views.sensors.FoodScreen;
+import com.example.smartcage.views.sensors.TempScreen;
+import com.example.smartcage.views.sensors.WaterScreen;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,18 +26,36 @@ public class SensorsFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_sensors, container, false);
 
         List<Sensor> sensorList = new ArrayList<>();
-        sensorList.add(new Sensor("Agua", R.drawable.water_droplet));
-        sensorList.add(new Sensor("Alimento", R.drawable.cookie));
-        sensorList.add(new Sensor("Gas", R.drawable.gas));
-        sensorList.add(new Sensor("Proximidad", R.drawable.proximity));
-        // TODO: Replace icon for temperature
-        sensorList.add(new Sensor("Temperatura", R.drawable.proximity));
+        sensorList.add(new Sensor("Agua", R.drawable.water_bowl));
+        sensorList.add(new Sensor("Alimento", R.drawable.food_bowl));
+        sensorList.add(new Sensor("Gas", R.drawable.poop));
+        sensorList.add(new Sensor("Proximidad", R.drawable.proxi));
+        sensorList.add(new Sensor("Temperatura", R.drawable.termometer));
 
         SensorAdapter sa = new SensorAdapter(sensorList);
         RecyclerView rv = rootView.findViewById(R.id.rcSensors);
 
         // Configurar el listener para el clic en el adaptador
 
+            switch (position){
+
+            switch(position){
+
+                case 0:
+                    Intent intent = new Intent(getActivity(), WaterScreen.class);
+                    startActivity(intent);
+                    break;
+                case 1:
+                    Intent foodIntent = new Intent(getActivity(), FoodScreen.class);
+                    startActivity(foodIntent);
+                    break;
+                case 4:
+                    Intent tempIntent = new Intent(getActivity(), TempScreen.class);
+                    startActivity(tempIntent);
+                    break;
+            }
+
+        });
 
         rv.setAdapter(sa);
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));

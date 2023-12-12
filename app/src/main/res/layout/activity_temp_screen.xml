@@ -4,87 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.sensors.WaterScreen">
+    tools:context=".views.sensors.TempScreen">
 
     <TextView
-        android:id="@+id/nivelde"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="50dp"
-        android:text="@string/waterSensor"
-        android:textStyle="bold"
+        android:text="Temperatura de la cama"
+        android:textColor="@color/md_theme_light_onPrimaryContainer"
         android:textSize="30sp"
-        android:textColor="@color/md_theme_light_onPrimaryContainer"/>
-
-    <ImageView
-        android:id="@+id/water_bowl"
-        android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintTop_toBottomOf="@id/nivelde"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/water_bowl" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageView
+        android:id="@+id/sleepy_joe"
         android:layout_width="wrap_content"
-        android:layout_height="150dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintTop_toBottomOf="@id/nivelde"
+        android:layout_height="300dp"
+
+        android:src="@drawable/sleepyjoe"
+        app:layout_constraintTop_toBottomOf="@id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/water_bowl"
-        android:alpha="0.2"/>
+        />
 
     <TextView
-        android:id="@+id/porcentaje_agua"
+        android:id="@+id/temperatura"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/water_bowl"
+        app:layout_constraintTop_toBottomOf="@+id/sleepy_joe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="Porcentaje %"
+        android:text="Temperatura actual"
         android:layout_marginTop="20dp"
         android:textStyle="bold"
         android:textSize="30sp"
         android:textColor="@color/md_theme_light_onPrimaryContainer"/>
 
-    <Button
-        android:id="@+id/add_water"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/porcentaje_agua"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Agregar agua"
-        android:layout_marginTop="20dp"
-        android:textSize="25dp"/>
-
     <TextView
-        android:id="@+id/min_value"
+        android:id="@+id/estadoManta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/add_water"
+        app:layout_constraintTop_toBottomOf="@+id/temperatura"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="20dp"
-        android:text="Porcentaje minimo: value"
+        android:text="Manta calefactora"
         android:textStyle="bold"
         android:textSize="20sp"
         android:textColor="@color/md_theme_light_onPrimaryContainer"/>
 
-    <Button
-        android:id="@+id/change_min"
+    <Switch
+        android:id="@+id/switchManta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/min_value"
+        app:layout_constraintTop_toBottomOf="@+id/estadoManta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="Cambiar"
         android:layout_marginTop="20dp"
-        android:textSize="20dp"/>
+        android:scaleX="2"
+        android:scaleY="2"
+        android:thumbTint="@color/md_theme_light_error"
+        style="@style/SwitchStyle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

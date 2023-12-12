@@ -11,6 +11,7 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/md_theme_light_onPrimary"
         android:textSize="30dp"
         android:text="SensorName"
         app:layout_constraintTop_toTopOf="parent"

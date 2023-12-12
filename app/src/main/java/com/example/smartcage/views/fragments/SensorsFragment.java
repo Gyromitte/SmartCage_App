@@ -1,5 +1,6 @@
 package com.example.smartcage.views.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,25 +38,26 @@ public class SensorsFragment extends Fragment {
 
         // Configurar el listener para el clic en el adaptador
 
-            switch (position){
+            sa.setOnSensorClickListener(position -> {
+                switch(position){
 
-            switch(position){
+                    case 0:
+                        Intent intent = new Intent(getActivity(), WaterScreen.class);
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        Intent foodIntent = new Intent(getActivity(), FoodScreen.class);
+                        startActivity(foodIntent);
+                        break;
+                    case 4:
+                        Intent tempIntent = new Intent(getActivity(), TempScreen.class);
+                        startActivity(tempIntent);
+                        break;
+                }
+            });
 
-                case 0:
-                    Intent intent = new Intent(getActivity(), WaterScreen.class);
-                    startActivity(intent);
-                    break;
-                case 1:
-                    Intent foodIntent = new Intent(getActivity(), FoodScreen.class);
-                    startActivity(foodIntent);
-                    break;
-                case 4:
-                    Intent tempIntent = new Intent(getActivity(), TempScreen.class);
-                    startActivity(tempIntent);
-                    break;
-            }
 
-        });
+
 
         rv.setAdapter(sa);
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));

@@ -8,9 +8,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Escoge hasta que nivel \n de agua deseas llenar"
+        android:text="Escoge hasta que nivel \n de comida deseas llenar \n el bowl"
         android:textStyle="bold"
         android:textSize="20sp"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/spinner_dropdown"
@@ -45,7 +46,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_water"
-        android:src="@drawable/drinking"
+        android:src="@drawable/eating"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

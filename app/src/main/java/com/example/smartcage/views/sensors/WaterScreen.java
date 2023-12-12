@@ -36,7 +36,7 @@ public class WaterScreen extends AppCompatActivity {
                 // Assign rounded corners
                 dialog.getWindow().setBackgroundDrawableResource(R.drawable.dialog_rounded_corners);
                 // Assign design
-                dialog.setContentView(R.layout.water_popup);
+                dialog.setContentView(R.layout.food_popup);
 
                 // Find the Spinner inside the Dialog
                 Spinner spinnerDropdown = dialog.findViewById(R.id.spinner_dropdown);

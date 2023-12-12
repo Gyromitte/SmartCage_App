@@ -1,4 +1,4 @@
-package com.example.smartcage.fragments;
+package com.example.smartcage.views.fragments;
 
 import android.os.Bundle;
 

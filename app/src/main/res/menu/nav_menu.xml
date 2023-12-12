@@ -11,6 +11,10 @@
             android:icon="@drawable/nav_home"
             android:title="@string/home"/>
         <item
+            android:id="@+id/nav_cages"
+            android:icon="@drawable/nav_cage"
+            android:title="@string/jaulas"/>
+        <item
             android:id="@+id/nav_sensors"
             android:icon="@drawable/nav_sensors"
             android:title="@string/sensores"/>

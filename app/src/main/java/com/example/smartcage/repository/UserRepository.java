@@ -65,7 +65,6 @@ public class UserRepository {
                     String token = response.body().getToken();
                     tokenLiveData.setValue(token);
                 } else {
-                    // Manejar el error en el inicio de sesión
                     tokenLiveData.setValue(null);
                 }
             }
@@ -79,4 +78,7 @@ public class UserRepository {
 
         return tokenLiveData;
     }
+
+
+
 }

@@ -56,9 +56,6 @@ public class SensorsFragment extends Fragment {
                 }
             });
 
-
-
-
         rv.setAdapter(sa);
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         rv.setHasFixedSize(true);

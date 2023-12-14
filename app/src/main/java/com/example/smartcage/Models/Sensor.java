@@ -6,6 +6,7 @@ public class Sensor {
     private String tipo;
     private Boolean estado;
     private int iconResId; // Resource id of the icon
+    private Float value;
 
     // Getters
     public String getNombre() {

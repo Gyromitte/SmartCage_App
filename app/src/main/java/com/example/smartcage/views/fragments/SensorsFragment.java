@@ -14,6 +14,7 @@ import com.example.smartcage.Adapters.SensorAdapter;
 import com.example.smartcage.Models.Sensor;
 import com.example.smartcage.R;
 import com.example.smartcage.views.sensors.FoodScreen;
+import com.example.smartcage.views.sensors.PresencyScreen;
 import com.example.smartcage.views.sensors.TempScreen;
 import com.example.smartcage.views.sensors.WaterScreen;
 
@@ -36,8 +37,26 @@ public class SensorsFragment extends Fragment {
         SensorAdapter sa = new SensorAdapter(sensorList);
         RecyclerView rv = rootView.findViewById(R.id.rcSensors);
 
-            sa.setOnSensorClickListener(position -> {
-                switch(position){
+        // Configurar el listener para el clic en el adaptador
+        sa.setOnSensorClickListener(position -> {
+            switch(position){
+                case 0:
+                    Intent intent = new Intent(getActivity(), WaterScreen.class);
+                    startActivity(intent);
+                    break;
+                case 1:
+                    Intent foodIntent = new Intent(getActivity(), FoodScreen.class);
+                    startActivity(foodIntent);
+                    break;
+                case 3:
+                    Intent presencyIntent = new Intent(getActivity(), PresencyScreen.class);
+                    startActivity(presencyIntent);
+                    break;
+                case 4:
+                    Intent tempIntent = new Intent(getActivity(), TempScreen.class);
+                    startActivity(tempIntent);
+                    break;
+            }
 
                     case 0:
                         Intent intent = new Intent(getActivity(), WaterScreen.class);

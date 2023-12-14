@@ -3,6 +3,7 @@ package com.example.smartcage;
 import com.example.smartcage.Models.ApiResponse;
 import com.example.smartcage.Models.Cage;
 import com.example.smartcage.Models.JwtResponse;
+import com.example.smartcage.Models.Sensor;
 import com.example.smartcage.Models.User;
 
 import java.util.List;

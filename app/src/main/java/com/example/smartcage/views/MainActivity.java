@@ -15,7 +15,6 @@ import com.example.smartcage.R;
 import com.example.smartcage.views.fragments.AboutFragment;
 import com.example.smartcage.views.fragments.CageFragment;
 import com.example.smartcage.views.fragments.HomeFragment;
-import com.example.smartcage.views.fragments.SensorsFragment;
 import com.example.smartcage.views.fragments.SettingsFragment;
 import com.google.android.material.navigation.NavigationView;
 
@@ -24,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private static final int NAV_HOME = R.id.nav_home;
     private static final int NAV_CAGES = R.id.nav_cages;
     private static final int NAV_SETTINGS = R.id.nav_settings;
-    private static final int NAV_SENSORS = R.id.nav_sensors;
     private static final int NAV_ABOUT = R.id.nav_about;
     private static final int NAV_LOGOUT = R.id.nav_logout;
     private DrawerLayout drawerLayout;
@@ -60,8 +58,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new HomeFragment()).commit();
         } else if (itemId == NAV_SETTINGS) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new SettingsFragment()).commit();
-        } else if (itemId == NAV_SENSORS) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new SensorsFragment()).commit();
         } else if (itemId == NAV_ABOUT) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new AboutFragment()).commit();
         } else if (itemId == NAV_LOGOUT) {

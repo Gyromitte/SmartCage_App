@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.smartcage.Adapters.CageAdapter;
 import com.example.smartcage.ApiService;
+import com.example.smartcage.Models.Cage;
 import com.example.smartcage.R;
 import com.example.smartcage.SharedPreferencesManager;
 import com.example.smartcage.repository.CageRepository;
@@ -42,10 +43,24 @@ public class CageFragment extends Fragment {
         cageViewModel.getCages().observe(getViewLifecycleOwner(), cages -> {
             if (cages != null) {
                 cageAdapter.setCages(cages);
+                cageAdapter.setOnCageClickListener(position -> {
+                    Cage selectedCage = cages.get(position);
+
+                    SensorsFragment sensorsFragment = new SensorsFragment();
+                    Bundle args = new Bundle();
+                    args.putInt("cageId", selectedCage.getId());
+                    sensorsFragment.setArguments(args);
+
+                    requireActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_containter, sensorsFragment)
+                            .addToBackStack(null)  // Opcional: agregar a la pila de retroceso
+                            .commit();
+                });
             } else {
                 Toast.makeText(getActivity(), "Error al cargar las jaulas", Toast.LENGTH_SHORT).show();
             }
         });
+
         cageViewModel.loadCages();
 
         return rootView;

@@ -67,12 +67,10 @@ public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.SensorHold
         }
     }
 
-    // Interfaz para manejar los clics
     public interface OnSensorClickListener {
         void onSensorClick(int position);
     }
 
-    // Método para configurar el listener
     public void setOnSensorClickListener(OnSensorClickListener listener) {
         this.onSensorClickListener = listener;
     }

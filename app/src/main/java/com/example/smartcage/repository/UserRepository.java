@@ -64,18 +64,20 @@ public class UserRepository {
                     String token = response.body().getToken();
                     tokenLiveData.setValue(token);
                 } else {
-                    // Manejar el error en el inicio de sesión
                     tokenLiveData.setValue(null);
                 }
             }
 
             @Override
             public void onFailure(Call<JwtResponse> call, Throwable t) {
-                // Manejar la falla en la comunicación con el servidor
+                // comunicación con el servidor
                 tokenLiveData.setValue(null);
             }
         });
 
         return tokenLiveData;
     }
+
+
+
 }

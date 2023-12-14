@@ -1,15 +1,19 @@
 package com.example.smartcage;
 
 import com.example.smartcage.Models.ApiResponse;
+import com.example.smartcage.Models.Cage;
 import com.example.smartcage.Models.JwtResponse;
 import com.example.smartcage.Models.Sensor;
 import com.example.smartcage.Models.User;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public interface ApiService {
@@ -23,6 +27,6 @@ public interface ApiService {
             @Field("password") String password
     );
 
-    // Sensores
-
+    @GET("api/cages")
+    Call<List<Cage>> getCages(@Header("Authorization") String token);
 }

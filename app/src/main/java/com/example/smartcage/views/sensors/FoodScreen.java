@@ -11,11 +11,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.smartcage.R;
 
 public class FoodScreen extends AppCompatActivity {
 
-    private static final int MAX_PROGRESO = 100;
+    private static final int MAX_PROGRESO = 80;
     private ImageView imageFoodBowl;
     private boolean ajusteRealizado = false;
 

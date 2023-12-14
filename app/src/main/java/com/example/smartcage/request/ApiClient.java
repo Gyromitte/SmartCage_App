@@ -1,5 +1,6 @@
 package com.example.smartcage.request;
 
+import com.example.smartcage.ApiService;
 import com.google.gson.GsonBuilder;
 
 import okhttp3.OkHttpClient;
@@ -12,7 +13,6 @@ public class ApiClient {
     private static final String BASE_URL = "http://104.248.191.29/";
 
     private static Retrofit retrofit = null;
-
     public static Retrofit getClient() {
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -27,5 +27,9 @@ public class ApiClient {
                     .build();
         }
         return retrofit;
+    }
+
+    public static ApiService getApiService() {
+        return getClient().create(ApiService.class);
     }
 }

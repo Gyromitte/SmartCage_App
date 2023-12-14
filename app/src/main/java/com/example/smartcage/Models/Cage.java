@@ -1,6 +1,13 @@
 package com.example.smartcage.Models;
 
 public class Cage {
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    private int id;
     private String name;
     private String description;
 
@@ -20,8 +27,9 @@ public class Cage {
         this.description = description;
     }
 
-    public Cage(String name, String description) {
+    public Cage(String name, String description, int id) {
         this.name = name;
         this.description = description;
+        this.id = id;
     }
 }

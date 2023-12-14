@@ -15,6 +15,7 @@ import java.util.List;
 
 public class CageAdapter extends RecyclerView.Adapter<CageAdapter.CageHolder> {
     private List<Cage> cageList;
+
     public CageAdapter(List<Cage> cageList) {
         this.cageList = cageList;
     }
@@ -38,10 +39,17 @@ public class CageAdapter extends RecyclerView.Adapter<CageAdapter.CageHolder> {
         return cageList.size();
     }
 
+    public void setCages(List<Cage> newCages) {
+        cageList.clear();
+        cageList.addAll(newCages);
+        notifyDataSetChanged();
+    }
+
     public class CageHolder extends RecyclerView.ViewHolder {
         Cage cage;
         TextView name;
         TextView description;
+
         public CageHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.name);

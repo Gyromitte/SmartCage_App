@@ -31,13 +31,11 @@ public class CageRepository {
                 if (response.isSuccessful()) {
                     cagesLiveData.setValue(response.body());
                 } else {
-                    // Manejar errores de la API
                     cagesLiveData.setValue(null);
                 }
             }
             @Override
             public void onFailure(Call<List<Cage>> call, Throwable t) {
-                // Manejar errores de la red
                 cagesLiveData.setValue(null);
             }
         });

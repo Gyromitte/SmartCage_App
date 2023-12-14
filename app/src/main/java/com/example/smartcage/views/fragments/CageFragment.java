@@ -53,7 +53,7 @@ public class CageFragment extends Fragment {
 
                     requireActivity().getSupportFragmentManager().beginTransaction()
                             .replace(R.id.fragment_containter, sensorsFragment)
-                            .addToBackStack(null)  // Opcional: agregar a la pila de retroceso
+                            .addToBackStack(null)
                             .commit();
                 });
             } else {

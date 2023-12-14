@@ -53,7 +53,6 @@ public class RegisteredAccount extends AppCompatActivity {
                         Intent i = new Intent(RegisteredAccount.this, MainActivity.class);
                         startActivity(i);
                     } else {
-                        // Error en el inicio de sesión, muestra un mensaje adecuado
                         Toast.makeText(RegisteredAccount.this, "Error en el inicio de sesión", Toast.LENGTH_SHORT).show();
                     }
                 });

@@ -36,8 +36,6 @@ public class SensorsFragment extends Fragment {
         SensorAdapter sa = new SensorAdapter(sensorList);
         RecyclerView rv = rootView.findViewById(R.id.rcSensors);
 
-        // Configurar el listener para el clic en el adaptador
-
             sa.setOnSensorClickListener(position -> {
                 switch(position){
 

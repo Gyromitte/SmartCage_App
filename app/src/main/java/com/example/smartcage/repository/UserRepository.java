@@ -71,7 +71,7 @@ public class UserRepository {
 
             @Override
             public void onFailure(Call<JwtResponse> call, Throwable t) {
-                // Manejar la falla en la comunicación con el servidor
+                // comunicación con el servidor
                 tokenLiveData.setValue(null);
             }
         });

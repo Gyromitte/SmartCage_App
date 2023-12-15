@@ -1,5 +1,6 @@
 package com.example.smartcage.views;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -12,6 +13,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.example.smartcage.R;
+import com.example.smartcage.SharedPreferencesManager;
 import com.example.smartcage.views.fragments.AboutFragment;
 import com.example.smartcage.views.fragments.CageFragment;
 import com.example.smartcage.views.fragments.HomeFragment;
@@ -62,6 +64,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new AboutFragment()).commit();
         } else if (itemId == NAV_LOGOUT) {
             Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
+            SharedPreferencesManager sharedPreferencesManager = new SharedPreferencesManager(this);
+            sharedPreferencesManager.logout();
+            Intent intent = new Intent(this, Login.class);
+            startActivity(intent);
+            finish();
         } else if (itemId == NAV_CAGES) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new CageFragment()).commit();
         }

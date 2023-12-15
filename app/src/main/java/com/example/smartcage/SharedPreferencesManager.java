@@ -34,7 +34,7 @@ public class SharedPreferencesManager {
         return preferences.getString(TOKEN_KEY, null);
     }
 
-    public void clearPreferences() {
+    public void logout() {
         editor.clear();
         editor.apply();
     }

@@ -31,4 +31,10 @@ public class Sensor {
         this.nombre = nombre;
         this.iconResId = iconResId;
     }
+
+    /*public void getSensor(String nombre, String tipo, Float value){
+        this.nombre = nombre;
+        this.tipo = tipo;
+        this.value = value;
+    }*/
 }

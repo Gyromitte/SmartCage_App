@@ -1,5 +1,12 @@
 package com.example.smartcage.Models;
 
-public class SensorResponse {
+import com.example.smartcage.viewModel.AdaFruitModel;
+import com.google.gson.annotations.SerializedName;
 
+public class SensorResponse {
+    @SerializedName("msg")
+    public String msg;
+
+    @SerializedName("data")
+    public AdaFruitModel data;
 }

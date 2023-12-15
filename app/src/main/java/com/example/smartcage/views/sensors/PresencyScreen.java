@@ -2,9 +2,11 @@ package com.example.smartcage.views.sensors;
 
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -21,6 +23,9 @@ public class PresencyScreen extends AppCompatActivity {
     private SensorViewModel sensorViewModel;
     private ImageView presency_Image;
     private Button presencia;
+    private String accion;
+    private int valor=0;
+    PresencyScreen presencyScreen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,18 +42,41 @@ public class PresencyScreen extends AppCompatActivity {
         sensorViewModel = new ViewModelProvider(this).get(SensorViewModel.class);
 
         // Observar los cambios en los datos del sensor desde el ViewModel
-        sensorViewModel.getSensorData("jaula.ultrasonico", token).observe(this, sensorResponse -> {
+        sensorViewModel.getSensorData("jaula.puerta", token).observe(this, sensorResponse -> {
             if (sensorResponse != null) {
                 int estado = Integer.parseInt(sensorResponse.data.value);
                 if(estado == 1) {
                     presency_Image.setImageResource(R.drawable.missing);
                     estadoPresencia.setText("Jaula abierta");
+                    valor=1;
                     presencia.setText("Cerrar");
                 } else {
                     presency_Image.setImageResource(R.drawable.presencyes);
                     estadoPresencia.setText("Jaula cerrada");
                     presencia.setText("Abrir");
+                    valor=0;
                 }
+            }
+        });
+
+        presencyScreen = this;
+
+
+        presencia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Definir dato = 1
+
+                if(valor==1) { accion = "0";}
+                else { accion = "1";}
+
+                sensorViewModel.sendData("jaula.puerta", token, accion).observe(presencyScreen, sensorResponse -> {
+                    if(sensorResponse != null){
+                        Toast.makeText(getApplicationContext(), "Dato enviado!", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Dato no enviado", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 

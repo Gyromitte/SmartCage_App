@@ -3,7 +3,6 @@ package com.example.smartcage;
 import com.example.smartcage.Models.ApiResponse;
 import com.example.smartcage.Models.Cage;
 import com.example.smartcage.Models.JwtResponse;
-import com.example.smartcage.Models.Sensor;
 import com.example.smartcage.Models.SensorResponse;
 import com.example.smartcage.Models.User;
 
@@ -35,5 +34,9 @@ public interface ApiService {
     @GET("cages/sensors/{sensor_route}")
     Call<SensorResponse> obtenerDatos(@Path("sensor_route") String jaulaId,
     @Header("Authorization") String authorization);
+
+    @POST("datos/{sensor_route}/{dato}")
+    Call<SensorResponse> enviarDatos(@Path("sensor_route") String sensorRoute, @Path("dato") String dato,
+                                     @Header("Authorization") String authorization);
 
 }

@@ -5,8 +5,6 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.smartcage.ApiService;
-import com.example.smartcage.Models.ApiResponse;
-import com.example.smartcage.Models.Sensor;
 import com.example.smartcage.Models.SensorResponse;
 import com.example.smartcage.Retrofit.RetrofitRequest;
 import com.example.smartcage.repository.SensorRepository;
@@ -23,6 +21,10 @@ public class SensorViewModel extends ViewModel {
 
     public LiveData<SensorResponse> getSensorData(String jaulaId, String token) {
         return sensorRepository.obtenerDatosDelSensor(jaulaId, token);
+    }
+
+    public LiveData<SensorResponse> sendData(String jaulaId, String token, String dato){
+        return sensorRepository.enviarDatos(jaulaId, token, dato);
     }
 
     public LiveData<String> getErrorMessage() {

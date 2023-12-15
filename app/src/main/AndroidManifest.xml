@@ -16,6 +16,14 @@
         android:theme="@style/Theme.SmartCage"
         tools:targetApi="31">
         <activity
+            android:name=".views.sensors.SoundScreen"
+            android:exported="false" />
+        <activity
+            android:name=".views.sensors.GasScreen"
+            android:exported="false" />
+        <activity
+            android:name=".views.sensors.PresencyScreen"
+            android:exported="false" />
             android:name=".views.fragments.CageFragment" />
         <activity
             android:name=".views.sensors.TempScreen"

@@ -49,7 +49,6 @@ public class UserRepository {
                 Log.e("API Failure", "Error: " + t.getMessage());
             }
         });
-
         return registrationResponseMutableLiveData;
     }
 

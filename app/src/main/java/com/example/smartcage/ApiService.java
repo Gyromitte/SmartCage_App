@@ -3,6 +3,8 @@ package com.example.smartcage;
 import com.example.smartcage.Models.ApiResponse;
 import com.example.smartcage.Models.Cage;
 import com.example.smartcage.Models.JwtResponse;
+import com.example.smartcage.Models.Sensor;
+import com.example.smartcage.Models.SensorResponse;
 import com.example.smartcage.Models.User;
 
 import java.util.List;
@@ -14,6 +16,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface ApiService {
     @POST("api/register")
@@ -28,4 +31,9 @@ public interface ApiService {
 
     @GET("api/cages")
     Call<List<Cage>> getCages(@Header("Authorization") String token);
+
+    @GET("cages/sensors/{sensor_route}")
+    Call<SensorResponse> obtenerDatos(@Path("sensor_route") String jaulaId,
+    @Header("Authorization") String authorization);
+
 }

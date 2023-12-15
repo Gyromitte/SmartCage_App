@@ -2,6 +2,7 @@ package com.example.smartcage.views.sensors;
 
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ public class PresencyScreen extends AppCompatActivity {
 
     private SensorViewModel sensorViewModel;
     private ImageView presency_Image;
+    private Button presencia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +28,7 @@ public class PresencyScreen extends AppCompatActivity {
 
         TextView estadoPresencia = findViewById(R.id.estado_agua);
         ImageView presency_Image = findViewById(R.id.presency_Image);
+        Button presencia = findViewById(R.id.boton);
 
         // Crear instancias necesarias: ApiService, SensorRepository y SensorViewModel
         ApiService apiService = ApiClient.getApiService();
@@ -38,17 +41,19 @@ public class PresencyScreen extends AppCompatActivity {
             if (sensorResponse != null) {
                 int estado = Integer.parseInt(sensorResponse.data.value);
                 if(estado == 1) {
-                    presency_Image.setImageResource(R.drawable.presencyes);
-                    estadoPresencia.setText("Tu mascota se \n encuentra en la jaula");
-                } else {
                     presency_Image.setImageResource(R.drawable.missing);
-                    estadoPresencia.setText("Tu mascota no se \n encuentra en la jaula");
+                    estadoPresencia.setText("Jaula abierta");
+                    presencia.setText("Cerrar");
+                } else {
+                    presency_Image.setImageResource(R.drawable.presencyes);
+                    estadoPresencia.setText("Jaula cerrada");
+                    presencia.setText("Abrir");
                 }
             }
         });
 
         // Obtener datos del sensor al iniciar la actividad (puedes hacerlo en respuesta a algún evento)
-        String jaulaId = "jaula.agua"; // Debes proporcionar el ID de la jaula aquí
+        String jaulaId = "jaula.ultrasonico"; // Debes proporcionar el ID de la jaula aquí
         sensorViewModel.fetchSensorData(jaulaId);
     }
 

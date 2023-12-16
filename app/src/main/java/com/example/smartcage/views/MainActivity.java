@@ -18,7 +18,6 @@ import com.example.smartcage.R;
 import com.example.smartcage.SharedPreferencesManager;
 import com.example.smartcage.views.fragments.AboutFragment;
 import com.example.smartcage.views.fragments.CageFragment;
-import com.example.smartcage.views.fragments.HomeFragment;
 import com.example.smartcage.views.fragments.SettingsFragment;
 import com.google.android.material.navigation.NavigationView;
 
@@ -28,7 +27,6 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final int NAV_HOME = R.id.nav_home;
     private static final int NAV_CAGES = R.id.nav_cages;
     private static final int NAV_SETTINGS = R.id.nav_settings;
     private static final int NAV_ABOUT = R.id.nav_about;
@@ -53,8 +51,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         if(savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new HomeFragment()).commit();
-            navigationView.setCheckedItem(R.id.nav_home);
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new CageFragment()).commit();
+            navigationView.setCheckedItem(R.id.nav_cages);
         }
     }
 
@@ -62,9 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
 
-        if (itemId == NAV_HOME) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new HomeFragment()).commit();
-        } else if (itemId == NAV_SETTINGS) {
+        if (itemId == NAV_SETTINGS) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new SettingsFragment()).commit();
         } else if (itemId == NAV_ABOUT) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new AboutFragment()).commit();

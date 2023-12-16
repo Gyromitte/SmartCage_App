@@ -21,7 +21,7 @@ public class TempScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp_screen);
 
-        TextView temperatura = findViewById(R.id.temperatura);
+        TextView temperatura = findViewById(R.id.estado);
 
         // Crear instancias necesarias: ApiService, SensorRepository y SensorViewModel
         ApiService apiService = ApiClient.getApiService();

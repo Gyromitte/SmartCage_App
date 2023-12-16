@@ -21,7 +21,7 @@
 
 
     <ImageView
-        android:id="@+id/sleepy_joe"
+        android:id="@+id/image"
         android:layout_width="wrap_content"
         android:layout_height="300dp"
 
@@ -32,10 +32,10 @@
         />
 
     <TextView
-        android:id="@+id/temperatura"
+        android:id="@+id/estado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/sleepy_joe"
+        app:layout_constraintTop_toBottomOf="@+id/image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:text="Temperatura actual"
@@ -48,7 +48,7 @@
         android:id="@+id/estadoManta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/temperatura"
+        app:layout_constraintTop_toBottomOf="@+id/estado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="20dp"

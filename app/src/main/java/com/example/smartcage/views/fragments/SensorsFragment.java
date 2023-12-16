@@ -14,6 +14,7 @@ import com.example.smartcage.Adapters.SensorAdapter;
 import com.example.smartcage.Models.Sensor;
 import com.example.smartcage.R;
 import com.example.smartcage.views.sensors.FoodScreen;
+import com.example.smartcage.views.sensors.GasScreen;
 import com.example.smartcage.views.sensors.PresencyScreen;
 import com.example.smartcage.views.sensors.TempScreen;
 import com.example.smartcage.views.sensors.WaterScreen;
@@ -47,6 +48,10 @@ public class SensorsFragment extends Fragment {
                 case 1:
                     Intent foodIntent = new Intent(getActivity(), FoodScreen.class);
                     startActivity(foodIntent);
+                    break;
+                case 2:
+                    Intent gasIntent = new Intent(getActivity(), GasScreen.class);
+                    startActivity(gasIntent);
                     break;
                 case 3:
                     Intent presencyIntent = new Intent(getActivity(), PresencyScreen.class);

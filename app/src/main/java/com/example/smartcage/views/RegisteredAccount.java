@@ -50,6 +50,9 @@ public class RegisteredAccount extends AppCompatActivity {
                         preferencesManager.saveEmail(email);
                         preferencesManager.saveToken(token);
 
+                        emailText.setText("");
+                        passwordText.setText("");
+
                         Intent i = new Intent(RegisteredAccount.this, MainActivity.class);
                         startActivity(i);
                     } else {

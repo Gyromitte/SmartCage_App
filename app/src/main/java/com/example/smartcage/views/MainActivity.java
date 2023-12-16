@@ -12,6 +12,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.smartcage.ApiService;
+import com.example.smartcage.Models.LogoutResponse;
 import com.example.smartcage.R;
 import com.example.smartcage.SharedPreferencesManager;
 import com.example.smartcage.views.fragments.AboutFragment;
@@ -19,6 +21,10 @@ import com.example.smartcage.views.fragments.CageFragment;
 import com.example.smartcage.views.fragments.HomeFragment;
 import com.example.smartcage.views.fragments.SettingsFragment;
 import com.google.android.material.navigation.NavigationView;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -63,12 +69,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (itemId == NAV_ABOUT) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new AboutFragment()).commit();
         } else if (itemId == NAV_LOGOUT) {
-            Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
-            SharedPreferencesManager sharedPreferencesManager = new SharedPreferencesManager(this);
-            sharedPreferencesManager.logout();
-            Intent intent = new Intent(this, Login.class);
-            startActivity(intent);
-            finish();
+
+            ApiService apiService = null;
+            Call<LogoutResponse> call = apiService.logout();
+            call.enqueue(new Callback<LogoutResponse>() {
+                @Override
+                public void onResponse(Call<LogoutResponse> call, Response<LogoutResponse> response) {
+                    if (response.isSuccessful()) {
+                        LogoutResponse logoutResponse = response.body();
+                        String message = logoutResponse.getMessage();
+                        Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
+                        SharedPreferencesManager sharedPreferencesManager = new SharedPreferencesManager(MainActivity.this);
+                        sharedPreferencesManager.logout();
+                        Intent intent = new Intent(MainActivity.this, Login.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        // Maneja el caso en que la respuesta no fue exitosa
+                    }
+                }
+                @Override
+                public void onFailure(Call<LogoutResponse> call, Throwable t) {
+                    Toast.makeText(MainActivity.this, "Hubo un error", Toast.LENGTH_SHORT).show();
+                }
+            });
         } else if (itemId == NAV_CAGES) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_containter, new CageFragment()).commit();
         }

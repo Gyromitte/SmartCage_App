@@ -1,6 +1,5 @@
 package com.example.smartcage.views.sensors;
 
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -84,5 +83,4 @@ public class PresencyScreen extends AppCompatActivity {
         String jaulaId = "jaula.ultrasonico"; // Debes proporcionar el ID de la jaula aquí
         sensorViewModel.fetchSensorData(jaulaId);
     }
-
 }

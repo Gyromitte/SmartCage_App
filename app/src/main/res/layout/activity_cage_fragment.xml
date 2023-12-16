@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:text="Aquí puedes ver las jaulas que tienes"
+        android:text="Aquí puedes ver las jaulas que tienes \n y agregar nuevas."
         android:textAlignment="center"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,7 @@
 
     <Button
         android:id="@+id/agregarJaula"
-        android:text="Agregar jaula"
+        android:text=" + Agregar jaula +"
         android:textSize="25sp"
         android:layout_marginTop="25dp"
         android:layout_width="wrap_content"
@@ -29,8 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/info"
-        app:layout_constraintBottom_toTopOf="rcCages"/>
-
+        app:layout_constraintBottom_toTopOf="@id/rcCages"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="0dp"

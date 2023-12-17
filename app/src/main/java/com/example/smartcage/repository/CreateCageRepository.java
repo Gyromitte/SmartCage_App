@@ -22,7 +22,7 @@ public class CreateCageRepository {
         apiService.createCage(createCageRequest, token).enqueue(new Callback<Cage>() {
             @Override
             public void onResponse(Call<Cage> call, Response<Cage> response) {
-                if(response.code() == 200){
+                if(response.code() == 201){
                     mutableLiveData.setValue(response.body());
                 }else{
                     Log.e("CageRepository", "Error al crear la jaula onResponse" + response.code());

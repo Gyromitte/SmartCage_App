@@ -43,7 +43,7 @@ public interface ApiService {
         }
     }
 
-    @POST("cages/create")
+    @POST("api/cages/create")
     Call<Cage> createCage(@Body CreateCageRequest createCageRequest,
                           @Header("Authorization") String authorization);
 

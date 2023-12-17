@@ -31,6 +31,21 @@ public interface ApiService {
     @GET("api/cages")
     Call<List<Cage>> getCages(@Header("Authorization") String token);
 
+    // Metodo para llenar la solicitud de body de cage create
+    class CreateCageRequest {
+        String name;
+        String description;
+
+        public CreateCageRequest(String name, String description) {
+            this.name = name;
+            this.description = description;
+        }
+    }
+
+    @POST("cages/create")
+    Call<Cage> createCage(@Body CreateCageRequest createCageRequest,
+                          @Header("Authorization") String authorization);
+
     @GET("cages/sensors/{sensor_route}")
     Call<SensorResponse> obtenerDatos(@Path("sensor_route") String jaulaId,
     @Header("Authorization") String authorization);

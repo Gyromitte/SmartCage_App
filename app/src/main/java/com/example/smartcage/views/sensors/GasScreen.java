@@ -47,12 +47,18 @@ public class GasScreen extends AppCompatActivity {
         // Observar los cambios desde el ViewModel
         sensorViewModel.getSensorData("jaula.gas", token).observe(this, sensorResponse -> {
             if(sensorResponse != null){
-                // Mostrar el valor en el textView
-                value.setText(sensorResponse.data.value);
+                int gas = Integer.parseInt(sensorResponse.data.value);
+                if (gas > 200) {
+                    image.setImageResource(R.drawable.dirty);
+                    estado.setText("La jaula de tu mascota está sucia \n Nivel de suciedad:");
+                    value.setText(sensorResponse.data.value);
+                    //value.setText("Tu mascota podria molestarse");
+                } else if (gas < 200) {
+                    image.setImageResource(R.drawable.clean_pet_cage);
+                    estado.setText("La jaula de tu mascota sigue estando limpia \n Nivel de suciedad:");
+                    value.setText(sensorResponse.data.value);
+                }
             }
         });
-
-
-
     }
 }

@@ -14,7 +14,9 @@ import com.example.smartcage.Adapters.SensorAdapter;
 import com.example.smartcage.Models.Sensor;
 import com.example.smartcage.R;
 import com.example.smartcage.views.sensors.FoodScreen;
+import com.example.smartcage.views.sensors.GasScreen;
 import com.example.smartcage.views.sensors.PresencyScreen;
+import com.example.smartcage.views.sensors.SoundScreen;
 import com.example.smartcage.views.sensors.TempScreen;
 import com.example.smartcage.views.sensors.WaterScreen;
 
@@ -33,6 +35,7 @@ public class SensorsFragment extends Fragment {
         sensorList.add(new Sensor("Gas", R.drawable.poop));
         sensorList.add(new Sensor("Proximidad", R.drawable.proxi));
         sensorList.add(new Sensor("Temperatura", R.drawable.termometer));
+        sensorList.add(new Sensor("Sonido", R.drawable.iconsound));
 
         SensorAdapter sa = new SensorAdapter(sensorList);
         RecyclerView rv = rootView.findViewById(R.id.rcSensors);
@@ -48,6 +51,10 @@ public class SensorsFragment extends Fragment {
                     Intent foodIntent = new Intent(getActivity(), FoodScreen.class);
                     startActivity(foodIntent);
                     break;
+                case 2:
+                    Intent gasIntent = new Intent(getActivity(), GasScreen.class);
+                    startActivity(gasIntent);
+                    break;
                 case 3:
                     Intent presencyIntent = new Intent(getActivity(), PresencyScreen.class);
                     startActivity(presencyIntent);
@@ -55,6 +62,10 @@ public class SensorsFragment extends Fragment {
                 case 4:
                     Intent tempIntent = new Intent(getActivity(), TempScreen.class);
                     startActivity(tempIntent);
+                    break;
+                case 5:
+                    Intent soundIntent = new Intent(getActivity(), SoundScreen.class);
+                    startActivity(soundIntent);
                     break;
             }
         });

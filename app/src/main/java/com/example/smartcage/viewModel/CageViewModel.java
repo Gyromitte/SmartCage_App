@@ -4,13 +4,16 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.smartcage.ApiService;
 import com.example.smartcage.Models.Cage;
 import com.example.smartcage.repository.CageRepository;
+import com.example.smartcage.repository.CreateCageRepository;
 
 import java.util.List;
 
 public class CageViewModel extends ViewModel {
     private CageRepository cageRepository;
+    private CreateCageRepository createCageRepository;
     private MutableLiveData<List<Cage>> cagesLiveData = new MutableLiveData<>();
     public CageViewModel(CageRepository cageRepository) {
         this.cageRepository = cageRepository;
@@ -25,5 +28,8 @@ public class CageViewModel extends ViewModel {
     }
     public void loadCages() {
         cageRepository.getCages().observeForever(cages -> cagesLiveData.setValue(cages));
+    }
+    public LiveData<Cage> createCage(ApiService.CreateCageRequest createCageRequest, String token){
+        return createCageRepository.createCage(createCageRequest, token);
     }
 }

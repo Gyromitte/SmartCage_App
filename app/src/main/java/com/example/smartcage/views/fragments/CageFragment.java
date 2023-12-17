@@ -1,11 +1,15 @@
 package com.example.smartcage.views.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,6 +23,7 @@ import com.example.smartcage.SharedPreferencesManager;
 import com.example.smartcage.repository.CageRepository;
 import com.example.smartcage.request.ApiClient;
 import com.example.smartcage.viewModel.CageViewModel;
+import com.example.smartcage.views.NewCage;
 
 import java.util.ArrayList;
 
@@ -64,5 +69,21 @@ public class CageFragment extends Fragment {
         cageViewModel.loadCages();
 
         return rootView;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Obtener la referencia al botón y realizar operaciones relacionadas con él
+        Button agregarJaula = view.findViewById(R.id.agregarJaula);
+        agregarJaula.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Abrir el activity
+                Intent intent = new Intent(getActivity(), NewCage.class);
+                startActivity(intent);
+            }
+        });
     }
 }

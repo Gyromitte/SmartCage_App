@@ -57,27 +57,46 @@ public class PresencyScreen extends AppCompatActivity {
                 }
             }
         });
-
         presencyScreen = this;
-
 
         presencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Definir dato = 1
-
-                if(valor==1) { accion = "0";}
-                else { accion = "1";}
+                if (valor == 1) {
+                    accion = "0";
+                } else {
+                    accion = "1";
+                }
 
                 sensorViewModel.sendData("jaula.puerta", token, accion).observe(presencyScreen, sensorResponse -> {
-                    if(sensorResponse != null){
+                    if (sensorResponse != null) {
                         Toast.makeText(getApplicationContext(), "Dato enviado!", Toast.LENGTH_SHORT).show();
-                    }else{
+
+                        // Actualizar la interfaz en el hilo principal
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (valor == 1) {
+                                    presency_Image.setImageResource(R.drawable.presencyes);
+                                    estadoPresencia.setText("Jaula cerrada");
+                                    presencia.setText("Abrir");
+                                    valor = 0;
+                                } else {
+                                    presency_Image.setImageResource(R.drawable.missing);
+                                    estadoPresencia.setText("Jaula abierta");
+                                    valor = 1;
+                                    presencia.setText("Cerrar");
+                                }
+                            }
+                        });
+                    } else {
                         Toast.makeText(getApplicationContext(), "Dato no enviado", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
         });
+
 
         // Obtener datos del sensor al iniciar la actividad (puedes hacerlo en respuesta a algún evento)
         String jaulaId = "jaula.ultrasonico"; // Debes proporcionar el ID de la jaula aquí

@@ -9,7 +9,7 @@ public class RetrofitRequest {
     public static Retrofit getRetrofit() {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
-                    .baseUrl("http://104.248.191.29")
+                    .baseUrl("http://104.248.191.29/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }

@@ -6,6 +6,7 @@ import com.example.smartcage.Models.JwtResponse;
 import com.example.smartcage.Models.LogoutResponse;
 import com.example.smartcage.Models.SensorResponse;
 import com.example.smartcage.Models.User;
+import com.example.smartcage.Models.UserResponse;
 
 import java.util.List;
 
@@ -19,6 +20,8 @@ import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface ApiService {
+    @GET("api/user/info")
+    Call<UserResponse> getUserInfo(@Header("Authorization") String token);
     @POST("api/register")
     Call<ApiResponse.RegistrationResponse> registerUser(@Body User user);
 

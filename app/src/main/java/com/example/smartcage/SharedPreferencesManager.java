@@ -7,7 +7,6 @@ public class SharedPreferencesManager {
     private static final String PREFERENCES_NAME = "user";
     private static final String TOKEN_KEY = "token";
     private static final String KEY_EMAIL = "email";
-
     private final SharedPreferences preferences;
     private final SharedPreferences.Editor editor;
 
